@@ -10,24 +10,24 @@ import models.*;
 
 public class Application extends Controller {
 
-    public static void index() {
-        
-        List <User> users = User.findAll();
-    	render(users);
-    }
-    
-    public static void save(@Required String username, @Required String fullname){
-    	
-        if(validation.hasErrors()){
-    		params.flash();
-    		validation.keep();
-    		index();
-    	}
-        
-        else{
-        	User user = new User(username, fullname);
-        	user.save();
-        	index();
-        }
-    }
+	public static void index() {
+
+		List<User> users = User.findAll();
+		render(users);
+	}
+
+	public static void save(@Required String username, @Required String fullname) {
+
+		if (validation.hasErrors()) {
+			params.flash();
+			validation.keep();
+			index();
+		}
+
+		else {
+			User user = new User(username, fullname);
+			user.save();
+			index();
+		}
+	}
 }
